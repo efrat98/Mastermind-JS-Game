@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        /* השתמש ב-flexbox */
+        justify-content: center;
+        /* מרכז אופקית */
+        align-items: center;
+        /* מרכז אנכית */
+        height: 100vh;
+        /* גובה מלא של המסך */
+        margin: 0;
+        /* לא להוסיף מרג'ין */
+        direction: rtl;
+        /* אם אתה רוצה טקסט מימין לשמאל */
+background-color: aquamarine;
+    }
+
+    #container {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+
+
+    label {
+        display: block;
+        /* כל תווית חדשה בשורה חדשה */
+        margin-top: 10px;
+        /* מרחק בין השדה לתווית */
+        font-size: 20px;
+        /* גודל גופן */
+        font-weight: bold;
+        /* הפוך את הטקסט לבולט */
+        color: #333;
+        /* צבע טקסט כהה */
+        text-align: center;
+        /*Align text to the right*/
+    }
+
+    input {
+        margin-bottom: 10px;
+        /* מרחק בין השדות */
+        padding: 10px;
+        /* שטח פנימי בשדות */
+        width: 300px;
+        /* רוחב קבוע לשדות */
+    }
+
+    button {
+        padding: 10px 20px;
+        /* שטח פנימי בכפתור */
+        cursor: pointer;
+        /* מצביע על כך שזה כפתור */
+        transition: all 0.3s ease;
+        text-align: center;
+        /*Align text to the right*/
+        font-weight: bold;
+        /* הפוך את הטקסט לבולט */
+        color: #333;
+        /* צבע טקסט כהה */
+    }
+
+    button:hover {
+        background-color: #7c6370;
+        /* צבע ורוד */
+        transform: scale(1.2);
+        /* גידול של 20% */
+    }
+    p{
+        font-size: 70px;
+        margin-bottom: 50px;
+    }
+</style>
+
+<body>
+   
+    <div id="container">
+        <p>בול פגיעה</p>
+        <label for="">name:</label>
+        <input id="name" type="text">
+        <br>
+        <br>
+        <label for="">password:</label>
+        <input id="pas" type="password">
+        <br>
+        <br>
+        <button id="btnLogIn">הכנס/הרשם</button>
+    </div>
+
+</body>
+
+<script>
+    const Uname = document.querySelector('#name');
+    const Upas = document.querySelector('#pas');
+    Upas.placeholder = "לפחות 8 תווים";
+    let users = [];
+    let str;
+    str = localStorage.getItem('userslocalStorage');
+    if (str != null)
+        users = JSON.parse(str);
+
+    document.querySelector('#btnLogIn').addEventListener('click', () => {
+        // בדוק אם הסיסמה תקינה
+        if (Upas.value.length <=8 || !/[a-zA-Z]/.test(Upas.value) || !/[0-9]/.test(Upas.value)) {
+    alert("סיסמה לא תקינה. על הסיסמה להיות מורכבת ממספרים ואותיות ולהיות באורך של לפחות 8 תווים.");
+    return; // יוצא מהפונקציה אם הסיסמה לא תקינה
+}
+
+        let i = 0;
+        // חפש אם המשתמש קיים
+        for (; i < users.length && (users[i].name != Uname.value || users[i].pas != Upas.value); i++);
+
+        if (i == users.length) {
+            // המשתמש לא קיים, נרשם משתמש חדש
+            let user = {
+                name: Uname.value,
+                pas: Upas.value,
+            };
+
+            users.push(user);
+            localStorage.setItem("userslocalStorage", JSON.stringify(users));
+            alert("ברוך הבא");
+
+            // שמירה של שם המשתמש הנוכחי בנפרד בלוקל סטורג'
+            localStorage.setItem("currentUser", Uname.value);
+            window.open("bo1.html", "_blank"); // פותח את הדף החדש
+        } else {
+            // המשתמש קיים
+            alert("את כבר כאן");
+            window.open("bo1.html", "_blank"); // פותח את הדף החדש
+
+        }
+
+        // מנקה את השדות
+        Uname.value = "";
+        Upas.value = "";
+    });
+
+</script>
+
+</html>

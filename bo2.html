@@ -1,0 +1,63 @@
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+     <link rel="stylesheet" href="bo2.css">
+     <script src="bo2.js" defer></script>
+ </head>
+ <style>
+   
+ </style>
+ <body id="bdy" style="background-color: rgb(124, 180, 190)" onload="startTimer()">
+     <div id='dv'>
+        <div id="idColor">
+         <button class="btnColor" style="background-color: red;" onclick="setColor('red')"></button>
+         <button class="btnColor" style="background-color: orange" onclick="setColor('orange')"></button>
+         <button class="btnColor" style="background-color: yellow" onclick="setColor('yellow')"></button>
+         <button class="btnColor" style="background-color: yellowgreen" onclick="setColor('yellowgreen')"></button>
+         <button class="btnColor" style="background-color: green" onclick="setColor('green')"></button>
+         <button class="btnColor" style="background-color: blue" onclick="setColor('blue')"></button>
+         <button class="btnColor" style="background-color: lightblue" onclick="setColor('lightblue')"></button>
+         <button class="btnColor" style="background-color: purple" onclick="setColor('purple')"></button>
+        
+         <button class="btnColor" style="color: rgb(0, 217, 255); height: 3cm; width: 2cm; font-size: 15px; background-color: rgb(43, 180, 146);" onclick="clearAll('white')"><b>נקה הכל</b></button>
+         <button class="btnColor" style="color: rgb(0, 255, 234); height: 3cm; width: 2cm; font-size: 15px; background-color: rgb(33, 175, 109);" onclick="check()"><b<>בדיקה</b></button>
+        </div>
+         <table>
+             <tr>
+                 <td style="width: 33%;"></td>
+                 <td style="width: 34%;">
+                    <div id='dv'>
+                        <div id="idGuesses">
+
+                     <!-- כפתורים לניחוש-->
+                     <button id='1' class="btnGuesses" style=" background-color: white;"></button>
+                     <button id='2' class="btnGuesses" style="background-color: white;"></button>
+                     <button id='3' class="btnGuesses" style="background-color: white;"></button>
+                     <button id='4' class="btnGuesses" style="margin-right: 100px; background-color: white;"></button>
+                     <br>
+                    </div>
+                     <!-- הטבלה של התוצאות -->
+                     
+                     <table id='tbl1' class="tbl">
+                         <tr>
+                             <td id="td1" class="tdResults" >X</td>
+                         </tr>
+                     </table>
+                 </td>
+                 <td style="width: 33%;"></td>
+             </tr>
+         </table>
+         <h1 style="color: rgb(199, 30, 157); font-size: 50px;" id="timer">1000</h1>
+         <input type="button" value="start" onclick="startTimer()">
+         <input type="button" value="stop" onclick="stopTimer()">
+         <input type="button" value="clear" onclick="clearTimer()">
+     </div>
+     
+
+ </body>
+ </html>

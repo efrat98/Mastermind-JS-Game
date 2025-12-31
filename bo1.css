@@ -1,0 +1,38 @@
+
+ .actionBtn {
+    border-radius: 50%;      /* צורה אליפטית כמו התחל משחק */
+    height: 2cm;
+    width: 4cm;
+    font-size: 25px;
+    background-color: white;
+    margin: 10px;
+}
+
+    
+#btnColor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#noVisiable{
+    background-color: aliceblue;
+}
+.my-font-color{
+    font-family: "Segoe UI",Arial,sans-serif;
+    color: rgb(15, 8, 151);
+}
+.btn{
+    border-radius: 20%;
+    height: 2.5cm;width: 2.5cm;
+    font-size:20px;
+
+
+}
+body {
+    background-image: url("תמונות/תמונה1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
