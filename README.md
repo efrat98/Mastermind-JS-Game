@@ -1,1 +1,16 @@
-# Mastermind-JS-Game
+# Mastermind JS Game
+
+A browser-based Mastermind game built with vanilla JavaScript.
+
+## Technologies
+- HTML
+- CSS
+- JavaScript
+
+## Features
+- Random code generation
+- User input validation
+- Feedback after each guess
+
+## How to run
+Open index.html in your browser.
